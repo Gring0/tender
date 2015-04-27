@@ -1,10 +1,11 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
-set :repo_url, 'Адрес репозитория'
+set :repo_url, 'git@github.com:Gring0/tender.git'
 set :application, 'tender'
-application = 'tender'
 set :deploy_to, '/var/www/apps/tender'
+
+set :rvm_type, :system
 
 namespace :foreman do
   desc 'Start server'
@@ -36,19 +37,7 @@ namespace :foreman do
   end
 end
 
-namespace :git do
-  desc 'Deploy'
-  task :deploy do
-    ask(:message, "Commit message?")
-    run_locally do
-      execute "git add -A"
-      execute "git commit -m '#{fetch(:message)}'"
-      execute "git push"
-    end
-  end
-end
-
-namespace ::deploy do
+namespace :deploy do
   desc 'Setup'
   task :setup do
     on roles(:all) do
