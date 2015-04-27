@@ -1,0 +1,36 @@
+<%= simple_form_for @auction do |f| %>
+  <% if @auction.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@auction.errors.count, "error") %> prohibited this auction from being saved:</h2>
+
+      <ul>
+      <% @auction.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label t('auctions.customer') %><br>
+    <%= @auction.customer %>
+  </div>
+  <div class="field">
+    <%= f.label t('auctions.subject') %><br>
+    <%= @auction.subject %>
+  </div>
+  <div class="field">
+    <%= f.label t('auctions.category') %><br>
+    <%= @auction.category %>
+  </div>
+  <div class="field">
+    <%= f.input :ffeature, as: :select, collection: Feature.all, include_blank: true, input_html: { class: 'chosen-input', data: { placeholder: t('auctions.ffeature') } } %>
+  </div>
+  <div class="field">
+    <%= f.input :sfeature, as: :select, collection: Feature.all, include_blank: true, input_html: { class: 'chosen-input', data: { placeholder: t('auctions.sfeature') } } %>
+  </div>
+  <br>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

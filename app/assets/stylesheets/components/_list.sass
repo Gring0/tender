@@ -1,0 +1,79 @@
+@mixin arrow($color: $gray-lighter)
+  right: -11px
+  top: 4px
+  content: " "
+  position: absolute
+  pointer-events: none
+  background-color: $color
+  border: 1px solid white
+  width: 22px
+  height: 22px
+  -webkit-transform: rotate(45deg)
+  transform: rotate(45deg)
+  border-left: none
+  border-bottom: none
+  z-index: 1
+
+.discussion-steps
+  margin-bottom: 2rem
+  .discussion-step
+    display: inline-block
+    width: 20%
+    font-weight: 200
+    letter-spacing: 1px
+    font-size: 1.4rem
+    border-radius: 0
+    padding: .8rem 1rem .6rem 2.5rem
+    position: relative
+    &.step-completed.step-active
+      font-weight: 400
+    span
+      width: 100%
+      display: inline-block
+      text-overflow: ellipsis
+      overflow: hidden
+      z-index: 2
+      position: relative
+    &.step-inactive
+      background-color: $gray-lighter
+    &:first-child
+      padding-left: 1.5rem
+    &:last-child
+      padding-right: 1.5rem
+      &:after
+        width: 0 !important
+        height: 0 !important
+        border: none !important
+    &.step-inactive:after
+      +arrow
+
+.discussion-users-list
+  li
+    min-height: 25px
+
+.discussion-filter
+  li
+    padding-right: 15px
+
+.icon-status-created
+  @extend .fa-lightbulb-o
+.icon-status-disputing
+  @extend .fa-random
+.icon-status-voting
+  @extend .fa-star
+.icon-status-elaborating
+  @extend .fa-dot-circle-o
+.icon-status-closed
+  @extend .fa-lock
+
+@for $i from 1 through 5
+  .discussion-steps .step-completed:nth-child(#{6 - $i})
+    $k: percentage(($i - 1) / 20)
+    $color: lighten($brand-success, $k )
+    z-index: $i
+    background-color: $color
+    &:after
+      +arrow($color)
+
+.discussion-history-item
+  margin: 1rem 0

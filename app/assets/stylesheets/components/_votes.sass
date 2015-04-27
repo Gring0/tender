@@ -1,0 +1,50 @@
+$star-color: darken(gold, 20%)
+
+.discussion-variant-vote,
+.discussion-variant-idea-vote
+  margin-left: 1rem
+  // .variant-like-link
+  //   color: black
+  //   opacity: .7
+  //   text-shadow: 1px 1px 0 rgba(255, 255, 255, .4)
+  .votes-counter
+    white-space: nowrap
+    color: $star-color
+    text-shadow: 0 1px 0 white
+
+.discussion-variant-vote
+  .votes-counter
+    font-size: 2rem
+
+.discussion-history
+  .discussion-variant-vote
+    .votes-counter
+      font-size: inherit
+
+.discussion-variant-idea-vote
+  .votes-counter
+    font-size: 1.7rem
+
+.discussion-history
+  .discussion-variant-idea-vote
+    .votes-counter
+      font-size: inherit
+
+.star
+  @extend .fa
+  @extend .fa-star
+
+.votes-counter:hover
+  text-decoration: none
+
+.votable
+  .star
+    @extend .text-muted
+    @extend .fa-star-o
+  .votes-counter:hover
+    text-decoration: none
+    .star
+      @extend .fa-star
+      color: $star-color
+
+

@@ -1,0 +1,19 @@
+<div>
+	<%= simple_form_for :auction, url: auctions_path, method: "get" do |f| %>
+    <%= label_tag t('auctions.category') %>
+    <%= select_tag :category,  options_for_select(Auction.all.map(&:category).uniq), include_blank: "true", class: 'chosen-input' %>
+    <%= label_tag t('auctions.result') %>
+    <%= select_tag :result,  options_for_select(Auction.all.map(&:result).uniq), include_blank: "true", class: 'chosen-input' %>
+    <%= label_tag t('auctions.customer_category') %>
+    <%= select_tag :customer_category,  options_for_select(Auction.all.map(&:customer_category).uniq), include_blank: "true", class: 'chosen-input'%>
+    <%= label_tag t('auctions.ffeature') %>
+    <%= select_tag :ffeature,  options_for_select(Feature.all.map(&:title)), include_blank: "true", class: 'chosen-input'%>
+    <%= label_tag t('auctions.sfeature') %>
+    <%= select_tag :sfeature,  options_for_select(Feature.all.map(&:title)), include_blank: "true", class: 'chosen-input'%>
+  <br><br><%= f.submit ' Найти' %>
+</div>
+<% end %>
+
+<p>
+	<%= link_to 'Очистить фильтр', auctions_path %>
+</p>

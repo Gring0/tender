@@ -1,0 +1,26 @@
+.content-with-sidebar
+  +make-row()
+  .content
+    +make-md-column(8)
+  .sidebar
+    +make-md-column(4)
+
+// .discussion-variant-idea-heading
+//   +make-row()
+//   .discussion-variant-idea-title
+//     +make-sm-column(8)
+//   .discussion-variant-idea-meta
+//     +make-sm-column(4)
+//     font-size: 1.2rem
+
+.discussion-variant-idea-meta
+  font-size: 1.2rem
+
+.discussion-actions
+  +make-row()
+  .discussion-action
+    +make-xs-column(3)
+
+@media (min-width: $screen-sm-min)
+  .discussion-variant-idea-heading .discussion-variant-idea-meta
+    text-align: right

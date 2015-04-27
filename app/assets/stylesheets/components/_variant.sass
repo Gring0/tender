@@ -1,0 +1,44 @@
+$bg-color-list: red green blue yellow brown orange
+$list-length: length($bg-color-list)
+
+@for $i from 1 through $list-length
+  .discussion-variants-list .discussion-variant
+    &:nth-child(#{$list-length}n + #{$i})
+      background-color: transparentize(nth($bg-color-list, $i), .85)
+      .discussion-variant-comment,
+      .discussion-variant-idea
+        border-bottom: 1px solid transparentize(nth($bg-color-list, $i), .95)
+      .discussion-variant-comment-time
+        color: transparentize(nth($bg-color-list, $i), .7)
+
+.discussion-variant-comment
+  padding: 1rem 0
+  &:last-child
+    border-bottom: none !important
+    margin-bottom: 1rem
+  p:last-child
+    margin-bottom: 0
+
+.discussion-variant-idea
+  padding: .7rem 0 1rem
+
+.discussion-idea-title
+  font-size: 120%
+  font-weight: 400
+
+.discussion-variant-title
+  font-size: 180%
+  font-weight: 300
+  margin: .5rem 0 1.5rem
+
+.discussion-ideas-list,
+.dicussion-variant-ideas-list
+  @extend .list-unstyled
+  margin-bottom: 2rem
+
+.discussion-idea-title-description .markdown
+  margin-top: 1rem
+
+.discussion-variant-comments-list h4
+  font-weight: 400
+  margin-bottom: 0

@@ -1,0 +1,346 @@
+
+// Core variables and mixins
+@import "bootstrap/variables"
+@import "bootstrap/mixins"
+
+$border-radius-base: 1px
+$body-padding: 70px
+
+$headings-font-weight: 200
+$headings-line-height: 1
+$headings-color: #29264d
+$text-muted: #999
+
+$transition: all .2s linear
+
+// Navbar variables
+$navbar-default-bg: transparentize($brand-info, .1)
+$navbar-default-color: white
+$navbar-default-link-color: white
+$navbar-default-link-hover-color: lighten($navbar-default-link-color, 15%)
+$navbar-default-link-hover-bg: darken($navbar-default-bg, 5%)
+$navbar-default-brand-color: $navbar-default-link-color
+$navbar-default-brand-hover-color: $navbar-default-brand-color
+$navbar-default-toggle-icon-bar-bg: $navbar-default-color
+$navbar-default-toggle-hover-bg: $navbar-default-link-hover-bg
+
+// Panel variables
+$panel-bg: transparent
+$panel-default-bg: lighten(black, 99%)
+$panel-default-border: transparent
+$panel-body-padding: 1.5rem 1rem
+$panel-heading-padding: 1rem 1rem
+$panel-border-radius: $border-radius-base
+$panel-info-border: $state-info-bg
+
+// Form variables
+$input-color-placeholder: lighten(black, 80%)
+$input-border-radius: 1px
+$input-border: lighten(black, 90%)
+$input-font-weight: 200
+
+// Alerts variables
+$alert-border-radius: $border-radius-base
+
+// Tabs variables
+$nav-pills-border-radius: $border-radius-base
+$nav-tabs-active-link-hover-color: #70a9b9
+$nav-tabs-justified-border-color: #85c4d6
+
+// Bootstrap components
+
+@import "bootstrap-sprockets"
+@import "bootstrap-datetimepicker"
+
+// Reset and dependencies
+@import "bootstrap/normalize"
+@import "bootstrap/print"
+// @import "bootstrap/glyphicons"
+
+// Core CSS
+@import "bootstrap/scaffolding"
+@import "bootstrap/type"
+@import "bootstrap/code"
+@import "bootstrap/grid"
+@import "bootstrap/tables"
+@import "bootstrap/forms"
+@import "bootstrap/buttons"
+
+// Components
+@import "bootstrap/component-animations"
+@import "bootstrap/dropdowns"
+@import "bootstrap/button-groups"
+@import "bootstrap/input-groups"
+@import "bootstrap/navs"
+@import "bootstrap/navbar"
+// @import "bootstrap/breadcrumbs"
+// @import "bootstrap/pagination"
+// @import "bootstrap/pager"
+@import "bootstrap/labels"
+@import "bootstrap/badges"
+// @import "bootstrap/jumbotron"
+// @import "bootstrap/thumbnails"
+@import "bootstrap/alerts"
+// @import "bootstrap/progress-bars"
+@import "bootstrap/media"
+@import "bootstrap/list-group"
+@import "bootstrap/panels"
+@import "bootstrap/responsive-embed"
+@import "bootstrap/wells"
+@import "bootstrap/close"
+
+// Components w/ JavaScript
+@import "bootstrap/modals"
+// @import "bootstrap/tooltip"
+// @import "bootstrap/popovers"
+// @import "bootstrap/carousel"
+
+// Utility classes
+@import "bootstrap/utilities"
+@import "bootstrap/responsive-utilities"
+
+// Import Font Awesome
+@import "font-awesome"
+
+// Import Chosen
+@import "vendor/bootstrap-chosen"
+
+// Import Datepicker
+@import "bootstrap-datetimepicker"
+.bootstrap-datetimepicker-widget
+  display: none
+  background: white
+  border: 1px solid $panel-default-bg
+  box-shadow: 1px 1px 5px #aaa
+
+
+// Application components styles
+@import "components/type"
+@import "components/grid"
+@import "components/navbar"
+@import "components/form"
+@import "components/votes"
+@import "components/list"
+@import "components/panel"
+@import "components/modal"
+@import "components/variant"
+@import "components/sortable"
+
+
+// Old styles
+// @import "discussion"
+// @import "discussion_with_variants"
+// @import "discussion_with_voting"
+// @import "static_pages"
+
+// Clean it out
+
+html,
+body
+  height: 100%
+  margin: 0
+  padding: 0
+
+body
+  padding-top: $body-padding
+  background-color: #f2f2f2
+
+.home-for-anonymous
+  background-image: asset-url('mainpage-top.jpg')
+  background-repeat: repeat-x
+  background-position: top center
+
+.container.content
+  padding-bottom: 50px
+
+.content
+  min-height: 100%
+
+
+
+.remove-block
+  opacity: .3
+  transition: all .35s ease-in-out
+  @extend .text-danger
+  &:hover
+    opacity: 1
+    text-decoration: none
+  &.icon-close
+    position: absolute
+    top: 1rem
+    right: 1rem
+    &:hover
+      -webkit-transform: scale(1.5) rotate(270deg)
+      transform: scale(1.5) rotate(270deg)
+
+
+.has-error .help-inline
+  @extend .text-danger
+  font-size: 1.2rem
+  font-weight: 300
+
+@media (max-width: $screen-md-min)
+  .affix,
+  .affix-top,
+  .affix-bottom
+    position: static !important
+
+
+
+// New Design
+
+
+.navbar-default
+  background-color: rgba(91, 192, 222, 0.9)
+  border-color: #6ca0af
+  box-shadow: 0 0 10px
+
+.notices-row
+  +make-row()
+  color: #6d6e71
+  font-size: 18px
+  .notice
+    +make-sm-column(6)
+    margin-bottom: 2rem
+
+.notice-icon
+  width: 50px
+  text-align: center
+
+.notices-wrapper
+  text-shadow: 0 1px 0 white
+  opacity: .7
+
+.nav-tabs-justified,
+.nav-tabs.nav-justified
+  li
+    a
+      border: 2px solid transparent
+      color: #6d6e71
+      margin-bottom: -2px
+      &:hover,
+      &:focus
+        border-bottom: 2px solid $nav-tabs-justified-border-color
+
+  & > .active > a
+    border: 2px solid $nav-tabs-justified-border-color
+    border-bottom-color: transparent
+    color: $nav-tabs-justified-border-color
+    &:hover,
+    &:focus
+      border: 2px solid $nav-tabs-justified-border-color
+      border-bottom-color: transparent
+
+.nav-tabs.discussions-list-tabs
+  border-bottom: 2px solid $nav-tabs-justified-border-color
+  li
+    a
+      padding-bottom: 18px
+    a.btn, a.btn:hover, a.btn:focus
+      padding-bottom: 10px
+      color: #ffffff
+      background-color: #f0ad4e
+      margin-left: 5px
+
+.tab-content
+  background-color: #ffffff
+  padding-left: 27px
+  padding-right: 27px
+  padding-top: 25px
+  padding-bottom: 30px
+  border-left: 1px solid #c7c8cc
+  border-right: 1px solid #c7c8cc
+  border-bottom: 1px solid #c7c8cc
+  margin-bottom: 48px
+  color: #6d6e71
+
+.nav
+  li
+    a
+      text-transform: uppercase
+
+.panel-group .panel + .panel
+  margin-top: 0px
+
+.panel
+  border-top: 2px solid #aec1c9
+
+.panel-group > div:nth-of-type(odd)
+  background: #e4ecf1
+.panel-group > div:nth-of-type(even)
+  background: #ffffff
+
+.panel-default > .panel-heading
+  background: transparent
+
+
+// Home page
+
+.landing, .landing-idea
+  background-image: asset-url('landing-bg.jpg')
+  margin-top: -19px
+  background-position: top center
+  position: relative
+  text-align: center
+  .span
+    letter-spacing: 2px
+    font-size: 45px
+    text-transform: uppercase
+    width: 600px
+    margin: 0 auto
+    text-align: center
+    padding-top: 520px
+  a
+    text-transform: uppercase
+    width: 200px
+    text-align: center
+
+.landing
+  position: absolute
+  width: 100%
+  left: 0
+  height: 750px
+  a
+    text-transform: uppercase
+    width: 340px
+    text-align: center
+    font-size: 26px
+    margin-top: 20px
+
+.landing-idea
+  background-image: asset-url('landing-idea.png')
+  height: 600px
+  background-repeat: no-repeat
+  background-color: white
+  border: 1px solid #c7c8cc
+  margin-bottom: 30px
+  a
+    float: right
+    margin-top: 20px
+    margin-right: 20px
+
+.main-title
+  text-transform: uppercase
+  font-size: 25px
+  text-align: center
+  color: #808285
+  margin-top: 750px
+  margin-bottom: 30px
+
+.page-wrapper 
+  min-height: 100%
+  margin-bottom: -50px
+
+html.page-wrapper
+  height: 100%
+
+.page-buffer 
+  height: 50px
+
+table
+  thead
+    tr
+      th
+        vertical-align: middle
+        border-bottom: 2px solid #dddddd
+

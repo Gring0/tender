@@ -1,0 +1,40 @@
+.panel-body
+  section
+    padding: 1rem 0
+    border-bottom: thin solid lighten(black, 95%)
+    &:first-child
+      padding-top: 0
+    &:last-child
+      border-bottom: none
+      padding-bottom: 0
+
+.panel-default
+  background: $panel-default-bg
+
+.panel-heading,
+.panel-body
+  position: relative
+
+.panel-heading
+  h1,
+  h2,
+  h3,
+  h4
+    color: inherit
+    margin: .5rem 0
+  small
+    font-weight: 300
+    opacity: .5
+
+
+@media (min-width: $screen-md-min)
+  .panel-body
+    padding: 1.5rem 3rem
+  .panel-heading
+    padding: 1rem 3rem
+
+@media (min-width: $screen-sm-min)
+  .panel-body
+    padding: 1.5rem 2rem
+  .panel-heading
+    padding: 1rem 2rem

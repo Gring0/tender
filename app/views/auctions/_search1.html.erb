@@ -1,0 +1,8 @@
+<%= simple_form_for :auction, url: auctions_path, method: "get" do |f| %>
+  <%= f.input :category,  as: :select, collection: Auction.all.map(&:category).uniq, include_blank: true, placeholder: "type category", input_html: { class: 'chosen-input' } %>
+  <%= select_tag :result, options_for_select(Auction.all.map(&:result).uniq), include_blank: true, placeholder: "type customer", class: 'select chosen-input' %>
+  <%= search_field_tag :customer_category, as: :select, collection: Auction.all.map(&:customer_category).uniq, include_blank: true, placeholder: "type customer", input_html: { class: 'chosen-input' } %>
+  <br>
+  <%= f.submit ' Найти' %>
+<% end %>
+<p><%= link_to 'Очистить фильтр', auctions_path %> </p>

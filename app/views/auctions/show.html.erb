@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong><%= t('auctions.customer') %>:</strong>
+  <%= @auction.customer %>
+</p>
+
+<p>
+  <strong><%= t('auctions.subject') %></strong>
+  <%= @auction.subject %>
+</p>
+
+<p>
+  <strong><%= t('auctions.category') %>:</strong>
+  <%= @auction.category %>
+</p>
+
+<p>
+  <strong><%= t('auctions.ffeature') %>:</strong>
+  <%= @auction.ffeature %>
+</p>
+
+<p>
+  <strong><%= t('auctions.sfeature') %>:</strong>
+  <%= @auction.sfeature %>
+</p>
+
+<%= link_to 'Редактировать', edit_auction_path(@auction) %> |
+<%= link_to 'Назад', auctions_path %>
