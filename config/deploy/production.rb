@@ -8,11 +8,8 @@ set :branch, :master
 set :stage, fetch(:branch)
 
 server '46.101.160.37',
-       user: 'root',
-       roles: %w(web app db),
-       ssh_options: {
-         port: fetch(:port)
-       }
+       user: 'deployer',
+       roles: %w(web app db)
 
 # Extended Server Syntax
 # ======================

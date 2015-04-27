@@ -1,7 +1,7 @@
 # config valid only for Capistrano 3.1
 lock '3.2.1'
 
-set :repo_url, 'git@github.com:Gring0/tender.git'
+set :repo_url, 'https://github.com/Gring0/tender.git'
 set :application, 'tender'
 set :deploy_to, '/var/www/apps/tender'
 
@@ -48,7 +48,7 @@ namespace :deploy do
       execute "mkdir #{shared_path}/system"
       sudo "ln -s /var/log/upstart /var/www/log/upstart"
 
-      upload!('shared/database.yml', "#{shared_path}/config/database.yml")
+      #upload!('shared/database.yml', "#{shared_path}/config/database.yml")
       
       upload!('shared/Procfile', "#{shared_path}/Procfile")
 
@@ -73,7 +73,7 @@ namespace :deploy do
   desc 'Create symlink'
   task :symlink do
     on roles(:all) do
-      execute "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
+      #execute "ln -s #{shared_path}/config/database.yml #{release_path}/config/database.yml"
       execute "ln -s #{shared_path}/Procfile #{release_path}/Procfile"
       execute "ln -s #{shared_path}/system #{release_path}/public/system"
     end
