@@ -42,6 +42,8 @@
       <td><%= (b.inject(0) { |sum, x| sum += x } / b.size.to_f).round 2 %></td>
     </tr>
     <tr>
+      <th><%= t('auctions.ffeature') %></th>
+      <th><%= t('auctions.sfeature') %></th>
       <th><%= t('auctions.customer') %> </th>
       <th><%= t('auctions.subject') %> </th>
       <th><%= t('auctions.nmc') %> </th>
@@ -73,6 +75,13 @@
   <tbody>
     <% @auctions.each do |auction| %>
       <tr>
+        <%=simple_form_for auction do |f| %>
+          <td><%= f.input :ffeature, as: :select, collection: Feature.all, include_blank: true, label: t('auctions.ffeature'), input_html: { class: 'chosen-input', data: { placeholder: t('auctions.ffeature') } } %></td>
+          <td><%= f.input :sfeature, as: :select, collection: Feature.all, include_blank: true, label: t('auctions.sfeature'), input_html: { class: 'chosen-input', data: { placeholder: t('auctions.sfeature') } } %> 
+          <br>
+         <%= f.submit 'Сохранить' %></td>
+        <% end %>
+
         <td><%= auction.customer %></td>
         <td><%= auction.subject %></td>
         <td><%= auction.nmc %></td>
