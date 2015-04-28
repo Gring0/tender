@@ -4,8 +4,10 @@ lock '3.2.1'
 set :repo_url, 'https://github.com/Gring0/tender.git'
 set :application, 'tender'
 set :deploy_to, '/var/www/apps/tender'
+set :tmp_dir, 'shared/tmp'
+application = 'tender'
 
-set :rvm_type, :system
+set :rvm_type, :user
 
 namespace :foreman do
   desc 'Start server'
@@ -46,7 +48,7 @@ namespace :deploy do
       execute "mkdir  /var/www/apps/#{application}/log/"
       execute "mkdir  /var/www/apps/#{application}/socket/"
       execute "mkdir #{shared_path}/system"
-      sudo "ln -s /var/log/upstart /var/www/log/upstart"
+      #sudo "ln -s /var/log/upstart /var/www/log/upstart"
 
       #upload!('shared/database.yml', "#{shared_path}/config/database.yml")
       
@@ -54,9 +56,9 @@ namespace :deploy do
 
 
       upload!('shared/nginx.conf', "#{shared_path}/nginx.conf")
-      sudo 'stop nginx'
+      #sudo 'stop nginx'
       sudo "rm -f /usr/local/nginx/conf/nginx.conf"
-      sudo "ln -s #{shared_path}/nginx.conf /usr/local/nginx/conf/nginx.conf"
+      #sudo "ln -s #{shared_path}/nginx.conf /usr/local/nginx/conf/nginx.conf"
       sudo 'start nginx'
 
       within release_path do
