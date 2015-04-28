@@ -24,13 +24,13 @@
     <%= @auction.category %>
   </div>
   <div class="field">
-    <%= f.input :ffeature, as: :select, collection: Feature.all, include_blank: true, input_html: { class: 'chosen-input', data: { placeholder: t('auctions.ffeature') } } %>
+    <%= f.input :ffeature, as: :select, collection: Feature.all, include_blank: true, label: t('auctions.ffeature'), input_html: { class: 'chosen-input', data: { placeholder: t('auctions.ffeature') } } %>
   </div>
   <div class="field">
-    <%= f.input :sfeature, as: :select, collection: Feature.all, include_blank: true, input_html: { class: 'chosen-input', data: { placeholder: t('auctions.sfeature') } } %>
+    <%= f.input :sfeature, as: :select, collection: Feature.all, include_blank: true, label: t('auctions.sfeature'), input_html: { class: 'chosen-input', data: { placeholder: t('auctions.sfeature') } } %>
   </div>
   <br>
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit 'Отправить' %>
   </div>
 <% end %>
