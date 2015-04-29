@@ -36,6 +36,10 @@ class Auction < ActiveRecord::Base
     where("#{attribute} LIKE?", "#{search}")
   end
 
+  def self.like_search(search, attribute)
+    where("#{attribute} LIKE?", "%#{search}%")
+  end
+
   def get_customers(auctions)
     customers = options_from_collection_for_select(auctions, "id", "customer", nil)
     customers << ""

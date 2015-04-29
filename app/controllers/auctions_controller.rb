@@ -21,7 +21,7 @@ class AuctionsController < ApplicationController
       end
 
       if !params[:ffeature].empty?
-        d = Auction.search(params[:ffeature], "ffeature")
+        d = Auction.like_search(params[:ffeature], "ffeature")
       end
 
       if !a.nil?
