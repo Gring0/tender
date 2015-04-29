@@ -40,6 +40,17 @@ class Auction < ActiveRecord::Base
     customers = options_from_collection_for_select(auctions, "id", "customer", nil)
     customers << ""
   end
+
+  def self.get_id(auction)
+    if ((!auction.ffeature.nil?) and (!auction.ffeature.empty?))
+      a= Array.new(auction.ffeature.split(" || ").count) do |i|
+        Feature.find_by_title(auction.ffeature.split(" || ")[i]).id
+     end
+    else
+      []
+    end
+
+  end
   
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|

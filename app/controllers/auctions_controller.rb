@@ -24,10 +24,6 @@ class AuctionsController < ApplicationController
         d = Auction.search(params[:ffeature], "ffeature")
       end
 
-      if !params[:sfeature].empty?
-        e = Auction.search(params[:sfeature], "sfeature")
-      end
-
       if !a.nil?
         @auctions = a
       end
@@ -44,9 +40,6 @@ class AuctionsController < ApplicationController
         @auctions = d
       end
 
-      if !e.nil?
-        @auctions = e
-      end
     end
     @auctions
       respond_to do |format|
@@ -73,12 +66,6 @@ class AuctionsController < ApplicationController
   # POST /auctions
   # POST /auctions.json
   def create
-    if !params[:auction][:ffeature].empty?
-      params[:auction][:ffeature] = Feature.find_by_id(params[:auction][:ffeature]).title
-    end
-    if !params[:auction][:sfeature].empty?
-      params[:auction][:sfeature] = Feature.find_by_id(params[:auction][:sfeature]).title
-    end
     @auction = Auction.new(auction_params)
 
     respond_to do |format|
@@ -96,10 +83,13 @@ class AuctionsController < ApplicationController
   # PATCH/PUT /auctions/1.json
   def update
     if !params[:auction][:ffeature].empty?
-      params[:auction][:ffeature] = Feature.find_by_id(params[:auction][:ffeature]).title
-    end
-    if !params[:auction][:sfeature].empty?
-      params[:auction][:sfeature] = Feature.find_by_id(params[:auction][:sfeature]).title
+      a=""
+      params["auction"]["ffeature"].shift
+      params["auction"]["ffeature"].each do |f|
+        a=a + Feature.find_by_id(f).title + " || "
+      end
+      a=a[0..a.length-5]
+      params[:auction][:ffeature] = a
     end
     respond_to do |format|
       if @auction.update(auction_params)

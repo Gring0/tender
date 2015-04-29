@@ -75,7 +75,7 @@
     <% @auctions.each do |auction| %>
       <tr>
         <%=simple_form_for auction do |f| %>
-          <td><%= f.input :ffeature, as: :select, collection: Feature.all, include_blank: true, label: false, input_html: {multiple: true, class: 'chosen-input', data: { placeholder: t('auctions.ffeature') }} %>
+          <td><%= f.input :ffeature, as: :select, collection: Feature.all, include_blank: true, label: false, :selected => Auction.get_id(auction), input_html: {multiple: true,class: 'chosen-input', data: { placeholder: t('auctions.ffeature') }} %>
           <br>
          <%= f.submit 'Сохранить' %></td>
         <% end %>

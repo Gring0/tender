@@ -3,8 +3,7 @@ ru:
     customer:                   Заказчик
     subject:                    Предмет торгов
     nmc:                        НМЦ (руб.)
-    ffeature:                   Первый признак
-    sfeature:                   Второй признак
+    ffeature:                   Признаки
     category:                   Вид торгов
     notice_number:              № извещения на ООС
     object:                     Площадка

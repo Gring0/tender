@@ -8,8 +8,6 @@
     <%= select_tag :customer_category,  options_for_select(Auction.all.map(&:customer_category).uniq), include_blank: "true", class: 'chosen-input'%>
     <%= label_tag t('auctions.ffeature') %>
     <%= select_tag :ffeature,  options_for_select(Feature.all.map(&:title)), include_blank: "true", class: 'chosen-input'%>
-    <%= label_tag t('auctions.sfeature') %>
-    <%= select_tag :sfeature,  options_for_select(Feature.all.map(&:title)), include_blank: "true", class: 'chosen-input'%>
   <br><br><%= f.submit ' Найти' %>
 </div>
 <% end %>
