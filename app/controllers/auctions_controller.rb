@@ -70,7 +70,7 @@ class AuctionsController < ApplicationController
 
     respond_to do |format|
       if @auction.save
-        format.html { redirect_to @auction, notice: 'Auction was successfully created.' }
+        format.html { redirect_to @auction, notice: 'Запись успешно создана.' }
         format.json { render :show, status: :created, location: @auction }
       else
         format.html { render :new }
@@ -93,7 +93,7 @@ class AuctionsController < ApplicationController
     end
     respond_to do |format|
       if @auction.update(auction_params)
-        format.html { redirect_to auctions_url, notice: 'Auction was successfully updated.' }
+        format.html { redirect_to auctions_url, notice: 'Запись успешно обновлена.' }
         #format.json { render :show, status: :ok, location: @auction }
       else
         format.html { render :edit }
@@ -107,7 +107,7 @@ class AuctionsController < ApplicationController
   def destroy
     @auction.destroy
     respond_to do |format|
-      format.html { redirect_to auctions_url, notice: 'Auction was successfully destroyed.' }
+      format.html { redirect_to auctions_url, notice: 'Запись удалена.' }
       format.json { head :no_content }
     end
   end

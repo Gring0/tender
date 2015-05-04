@@ -33,7 +33,7 @@ class FeaturesController < ApplicationController
 
     respond_to do |format|
       if @feature.save
-        format.html { redirect_to @feature, notice: 'Feature was successfully created.' }
+        format.html { redirect_to @feature, notice: 'Признак успешно создан.' }
         format.json { render :show, status: :created, location: @feature }
       else
         format.html { render :new }
@@ -47,7 +47,7 @@ class FeaturesController < ApplicationController
   def update
     respond_to do |format|
       if @feature.update(feature_params)
-        format.html { redirect_to @feature, notice: 'Feature was successfully updated.' }
+        format.html { redirect_to @feature, notice: 'Признак успешно оновлен.' }
         format.json { render :show, status: :ok, location: @feature }
       else
         format.html { render :edit }
@@ -61,7 +61,7 @@ class FeaturesController < ApplicationController
   def destroy
     @feature.destroy
     respond_to do |format|
-      format.html { redirect_to features_url, notice: 'Feature was successfully destroyed.' }
+      format.html { redirect_to features_url, notice: 'Признак удален.' }
       format.json { head :no_content }
     end
   end
