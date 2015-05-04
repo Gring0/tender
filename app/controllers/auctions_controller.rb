@@ -93,8 +93,8 @@ class AuctionsController < ApplicationController
     end
     respond_to do |format|
       if @auction.update(auction_params)
-        format.html { redirect_to @auction, notice: 'Auction was successfully updated.' }
-        format.json { render :show, status: :ok, location: @auction }
+        format.html { redirect_to auctions_url, notice: 'Auction was successfully updated.' }
+        #format.json { render :show, status: :ok, location: @auction }
       else
         format.html { render :edit }
         format.json { render json: @auction.errors, status: :unprocessable_entity }

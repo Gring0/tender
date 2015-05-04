@@ -32,7 +32,7 @@ t = Auction.create(:customer => "Министерство строительно
 	:object => "",
 	:public_date => "11.02.2014",
 	:end_date_time => "17.03.2014 10:00",
-	:first_consideration_date => "26.03.14",
+	:first_consideration_date => "26.03.2014",
 	:realization_date => "",
 	:second_consideration_date => "",
 	:demand_quantity => "4",
