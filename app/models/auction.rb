@@ -32,12 +32,12 @@
 #
 
 class Auction < ActiveRecord::Base
-  def self.search(search, attribute)
-    where("#{attribute} LIKE?", "#{search}")
+  def self.search(search, attribute, page)
+    where("#{attribute} LIKE?", "#{search}").paginate(:page => page)
   end
 
-  def self.like_search(search, attribute)
-    where("#{attribute} LIKE?", "%#{search}%")
+  def self.like_search(search, attribute, page)
+    where("#{attribute} LIKE?", "%#{search}%").paginate(:page => page)
   end
 
   def get_customers(auctions)

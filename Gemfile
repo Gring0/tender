@@ -44,6 +44,9 @@ gem 'bootstrap3-datetimepicker-rails', '~> 3.0.1'
 
 gem 'chosen-rails'
 
+gem 'will_paginate'
+gem 'bootstrap-will_paginate'
+
 group :development do
   gem 'pry-rails'
   # gem 'rack-mini-profiler'

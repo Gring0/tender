@@ -74,6 +74,7 @@
   </thead>
 
   <tbody>
+
     <% @auctions.each do |auction| %>
       <tr>
         <%=simple_form_for auction do |f| %>
@@ -110,5 +111,8 @@
     <% end %>
   </tbody>
 </table>
+<% unless @auctions.empty? %>
+  <%= will_paginate %>
+<% end %>
 
 <br>

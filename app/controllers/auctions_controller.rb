@@ -1,27 +1,28 @@
+require 'will_paginate/array' 
 class AuctionsController < ApplicationController
   before_action :set_auction, only: [:show, :edit, :update, :destroy]
 
   # GET /auctions
   # GET /auctions.json
   def index
-    @auctions = Auction.all
+    @auctions = Auction.paginate(page: params[:page])
 
     if (params[:category] or params[:result] or params[:customer_category] or params[:ffeature] or params[:sfeature])
       if !params[:category].empty?
-        a = Auction.search(params[:category], "category")
+        a = Auction.search(params[:category], "category", params[:page])
       end
 
 
       if !params[:result].empty?
-        b = Auction.search(params[:result], "result")
+        b = Auction.search(params[:result], "result", params[:page])
       end
 
       if !params[:customer_category].empty?
-        c = Auction.search(params[:customer_category], "customer_category")
+        c = Auction.search(params[:customer_category], "customer_category", params[:page])
       end
 
       if !params[:ffeature].empty?
-        d = Auction.like_search(params[:ffeature], "ffeature")
+        d = Auction.like_search(params[:ffeature], "ffeature", params[:page])
       end
 
       if !a.nil?
