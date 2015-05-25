@@ -11,11 +11,11 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150426235341) do
+ActiveRecord::Schema.define(version: 20150525055335) do
 
   create_table "auctions", force: true do |t|
-    t.string   "customer"
-    t.string   "subject"
+    t.text     "customer"
+    t.text     "subject"
     t.datetime "created_at"
     t.datetime "updated_at"
     t.float    "nmc"
