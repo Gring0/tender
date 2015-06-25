@@ -29,7 +29,7 @@
 #  competition_regulator      :string(255)
 #  performer_name             :string(255)
 #  customer_category          :string(255)
-#
+#  end
 
 class Auction < ActiveRecord::Base
   def self.search(search, attribute, page)
